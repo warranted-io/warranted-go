@@ -1,13 +1,12 @@
 package client
 
 import (
-	"cryptohelper"
 	"errors"
 )
 
 type Client struct {
 	accountID string
-	authToken  string
+	authToken string
 }
 
 // NewClient creates a new warranted client instance
@@ -23,9 +22,9 @@ func NewClient(accountID, authToken string) (*Client, error) {
 
 // ValidateRequest validates the signature of a request
 func (c *Client) ValidateRequest(signature, url, jsonData string) bool {
-	hmac, err := cryptohelper.CreateHMAC(url, jsonData, c.authToken, "sha256")
+	hmac, err := CreateHMAC(url, jsonData, c.authToken, "sha256")
 	if err != nil {
 		return false
 	}
-	return cryptohelper.TimeSafeCompare(signature, hmac)
+	return TimeSafeCompare(signature, hmac)
 }

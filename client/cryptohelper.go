@@ -6,6 +6,7 @@ import (
 	"crypto/sha512"
 	"encoding/hex"
 	"errors"
+	"hash"
 )
 
 // TimeSafeCompare does a time-safe comparison of two strings
@@ -22,12 +23,12 @@ func TimeSafeCompare(a, b string) bool {
 
 // CreateHMAC creates an HMAC of a JSON request
 func CreateHMAC(url, jsonData, secretKey string, algorithm string) (string, error) {
-	var h hash.Hash
+	var h func() hash.Hash
 	switch algorithm {
 	case "sha256":
-		h = sha256.New()
+		h = sha256.New
 	case "sha512":
-		h = sha512.New()
+		h = sha512.New
 	default:
 		return "", errors.New("unsupported hashing algorithm")
 	}
