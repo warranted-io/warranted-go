@@ -34,8 +34,8 @@ type LawEnforcementRequestResponse struct {
 
 type LawEnforcementRequest struct {
 	Id         string   `json:"id"`
-	CreatedAt  int      `json:"createdAt"`
-	UpdatedAt  int      `json:"updatedAt"`
+	CreatedAt  int64    `json:"createdAt"`
+	UpdatedAt  int64    `json:"updatedAt"`
 	Name       string   `json:"name"`
 	Type       string   `json:"type"`
 	DecisionId string   `json:"decisionId"`

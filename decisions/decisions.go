@@ -19,8 +19,8 @@ type DecisionResponse struct {
 
 type Decision struct {
 	Id                      string `json:"id"`
-	CreatedAt               int    `json:"createdAt"`
-	UpdatedAt               int    `json:"updatedAt"`
+	CreatedAt               int64  `json:"createdAt"`
+	UpdatedAt               int64  `json:"updatedAt"`
 	LawEnforcementRequestId string `json:"lawEnforcementRequestId"`
 	Owner                   string `json:"owner"`
 	Result                  Result `json:"result"`
