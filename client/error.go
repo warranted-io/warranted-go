@@ -8,7 +8,6 @@ import (
 // WarrantedError provides information about an unsuccessful request.
 type WarrantedError struct {
 	ErrorCode string `json:"errorCode"`
-	IsError   bool   `json:"error"`
 	Message   string `json:"message"`
 }
 
